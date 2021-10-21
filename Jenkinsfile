@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying'
                 bat 'docker push benjaminfrancis10/flask-docker'
             }
         }
