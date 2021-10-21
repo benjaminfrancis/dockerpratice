@@ -17,15 +17,13 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Deploying'
-                echo %VARIABLE%
-                
+                echo %VARIABLE%          
             }
         }
         stage('Run') {
             steps {
                 echo 'Deploying.'
-                bat 'docker run -d -p 5003:5001  --name flask_project3 benjaminfrancis10/flask-docker'
-                
+                bat 'docker run -d -p 5003:5001  --name flask_project3 benjaminfrancis10/flask-docker'  
             }
         }
     }
