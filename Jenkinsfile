@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Deploying' 
                 bat '''FOR /F %%i IN ('curl -o /dev/null -s -w "%%{http_code}" www.google.com') DO set VARIABLE=%%i'''
-                bat '''if %VARIABLE%==200 ('docker run -d -p 5003:5001  --name flask_project3 benjaminfrancis10/flask-docker') else ('dir')'''
+                bat '''if %VARIABLE%==200 ('docker ps') else ('docker images')'''
             }
         }
         stage('Run') {
