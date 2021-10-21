@@ -19,6 +19,7 @@ pipeline {
                 echo 'Deploying' 
                 bat '''FOR /F %i IN ('curl -o /dev/null -s -w "%{http_code}" www.google.com') DO set VARIABLE=%i'''
                 bat '''if %VARIABLE%==200 (echo "flask running") else (echo "Unknown value")'''
+                echo 'success'
             }
         }
         stage('Run') {
