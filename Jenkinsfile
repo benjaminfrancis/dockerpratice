@@ -17,8 +17,8 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Deploying' 
-                bat '''FOR /F %%i IN ('curl -o /dev/null -s -w "%%{http_code}" www.google.com') DO set VARIABLE=%%i'''
-                bat '''IF %%VARIABLE%%==200 ('docker ps') ELSE ('docker images')'''
+                sh '''IF 200==200 ('docker ps') ELSE ('docker images')'''
+               
             }
         }
         stage('Run') {
