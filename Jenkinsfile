@@ -19,8 +19,7 @@ pipeline {
                 echo 'Deploying'
                 bat '''FOR /F %i IN ('curl -o /dev/null -s -w "%{http_code}" www.google.com') DO set VARIABLE=%i'''
                 echo %VARIABLE%
-                bat  'dir'
-                bat 'docker push benjaminfrancis10/flask-docker'
+                
             }
         }
         stage('Run') {
