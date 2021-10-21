@@ -5,16 +5,25 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                docker build --tag flask-app .
             }
         }
-        stage('Test') {
+        stage('Login') {
             steps {
-                echo 'Testing..'
+                echo 'logging..'
+                docker login -u="benjaminfrancis10" -p="9747065338@ben" 
             }
         }
-        stage('Deploy') {
+        stage('Push') {
             steps {
                 echo 'Deploying....'
+                docker push benjaminfrancis10/flask-docker
+            }
+        }
+        stage('Run') {
+            steps {
+                echo 'Deploying....'
+                
             }
         }
     }
