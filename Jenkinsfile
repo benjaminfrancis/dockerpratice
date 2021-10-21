@@ -23,6 +23,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo 'Deploying....'
+                bat 'docker run -d -p 5002:5001  --name flask_project2 benjaminfrancis10/flask-docker'
                 
             }
         }
