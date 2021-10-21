@@ -17,7 +17,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Deploying' 
-                sh '''IF 200==200 ('docker ps') ELSE ('docker images')'''
+                bat ''
                
             }
         }
