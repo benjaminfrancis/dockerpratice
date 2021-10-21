@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Deploying' 
                 bat '''FOR /F %%i IN ('curl -o /dev/null -s -w "%%{http_code}" www.google.com') DO set VARIABLE=%%i'''
-                bat '''if %%VARIABLE%==200 (dir) else (dir)'''
+                bat '''if %%VARIABLE%==200 ("dir") else ('ipconfig')'''
             }
         }
         stage('Run') {
