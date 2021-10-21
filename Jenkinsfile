@@ -16,8 +16,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                echo 'Deploying'
-                echo %VARIABLE%          
+                echo 'Deploying'     
             }
         }
         stage('Run') {
