@@ -17,9 +17,9 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Deploying'
-                bat 'FOR /F %i IN ('curl -o /dev/null -s -w "%{http_code}" www.google.com') DO set VARIABLE=%i'
+                bat '''FOR /F %i IN ('curl -o /dev/null -s -w "%{http_code}" www.google.com') DO set VARIABLE=%i'''
                 echo %VARIABLE%
-                bat  'if %VARIABLE%==200 (echo "flask running") else (echo "Unknown value")'
+                bat  '''if %VARIABLE%==200 (echo "flask running") else (echo "Unknown value")'''
                 bat 'docker push benjaminfrancis10/flask-docker'
             }
         }
