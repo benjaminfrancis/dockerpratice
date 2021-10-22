@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh ' docker build --tag flask-app .'
+                sh ' docker build --tag benjaminfrancis10/flask-docker .'
             }
         }
         stage('Login') {
@@ -17,6 +17,7 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'Deploying'
+                sh 'docker push benjaminfrancis10/flask-docker'
             }
         }
         stage('Run') {
